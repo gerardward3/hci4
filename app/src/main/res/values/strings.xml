@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">HCI4</string>
     <string name="add_reminder">Add Reminder</string>
+    <string name="next_event">Next Event</string>
 </resources>
