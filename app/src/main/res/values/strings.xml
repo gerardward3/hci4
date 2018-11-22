@@ -2,4 +2,7 @@
     <string name="app_name">HCI4</string>
     <string name="add_reminder">Add Reminder</string>
     <string name="next_event">Next Event</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
