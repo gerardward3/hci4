@@ -65,9 +65,9 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:focusable="false"
-                    android:text="22/11/2018"
                     android:inputType="date"
-                    android:onClick="showDatePickerDialog"/>
+                    android:onClick="showDatePickerDialog"
+                    android:text="22/11/2018" />
 
             </LinearLayout>
 
@@ -88,26 +88,32 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:focusable="false"
-                    android:text="0:00"
                     android:inputType="text"
-                    android:onClick="showTimePickerDialog" />
+                    android:onClick="showTimePickerDialog"
+                    android:text="0:00" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView6"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:text="Set Vibration Pattern" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:onClick="createVibration"
-                android:text="Set Pattern"
-                android:textColor="@color/cardview_light_background" />
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:text="Set Vibration Pattern" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:onClick="createVibration"
+                    android:text="Set Pattern"
+                    android:textColor="@color/cardview_light_background" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

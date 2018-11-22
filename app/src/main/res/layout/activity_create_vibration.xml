@@ -6,31 +6,118 @@
     android:layout_height="match_parent"
     tools:context=".CreateVibration">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="9dp"
-        android:onClick="playPattern1"
-        android:text="Pattern 1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
         android:layout_marginBottom="8dp"
-        android:onClick="playPattern2"
-        android:text="Pattern 2"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="430dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/shoppingRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Shopping" />
+
+                    <Button
+                        android:id="@+id/shoppingPatternButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Play Pattern" />
+
+                    <RadioButton
+                        android:id="@+id/cleaningRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cleaning" />
+
+                    <Button
+                        android:id="@+id/cleaningPatternButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Play Pattern" />
+
+                    <RadioButton
+                        android:id="@+id/friendsRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Meeting Friends" />
+
+                    <Button
+                        android:id="@+id/friendsPatternButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Play Pattern" />
+
+                    <RadioButton
+                        android:id="@+id/petRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Feed Dog" />
+
+                    <Button
+                        android:id="@+id/petPatternButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Play Pattern" />
+
+                    <RadioButton
+                        android:id="@+id/gardeningRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gardening" />
+
+                    <Button
+                        android:id="@+id/gardeningPatternButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Play Pattern" />
+
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/newPatternButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"
+                    android:text="Add New Pattern"
+                    android:textColor="@color/cardview_light_background" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/setPatternButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:onClick="setPattern"
+            android:text="Button"
+            android:textColor="@color/cardview_light_background"
+            tools:text="Set Pattern" />
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -26,4 +26,8 @@ public class CreateVibration extends AppCompatActivity {
         vibe.vibrate(new long[]{0, 750, 100, 200, 100, 200}, -1);
     }
 
+    public void setPattern(View view) {
+        Intent intent = new Intent(this, AddReminder.class);
+        startActivity(intent);
+    }
 }

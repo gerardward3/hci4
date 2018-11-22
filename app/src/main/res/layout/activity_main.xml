@@ -27,7 +27,7 @@
         android:layout_marginBottom="88dp"
         android:onClick="addReminder"
         android:text="@string/add_reminder"
-        android:textColorLink="@color/colorPrimaryDark"
+        android:textColorLink="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
