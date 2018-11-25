@@ -23,7 +23,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="430dp">
+            android:layout_height="376dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,6 +46,8 @@
                         android:id="@+id/shoppingPatternButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/holo_orange_light"
+                        android:onClick="playPattern"
                         android:text="Play Pattern" />
 
                     <RadioButton
@@ -58,6 +60,8 @@
                         android:id="@+id/cleaningPatternButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/holo_purple"
+                        android:onClick="playPattern"
                         android:text="Play Pattern" />
 
                     <RadioButton
@@ -70,6 +74,8 @@
                         android:id="@+id/friendsPatternButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:onClick="playPattern"
                         android:text="Play Pattern" />
 
                     <RadioButton
@@ -82,18 +88,8 @@
                         android:id="@+id/petPatternButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Play Pattern" />
-
-                    <RadioButton
-                        android:id="@+id/gardeningRadio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Gardening" />
-
-                    <Button
-                        android:id="@+id/gardeningPatternButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_blue_dark"
+                        android:onClick="playPattern"
                         android:text="Play Pattern" />
 
                 </RadioGroup>
@@ -102,6 +98,7 @@
                     android:id="@+id/newPatternButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
                     android:background="@color/colorAccent"
                     android:text="Add New Pattern"
                     android:textColor="@color/cardview_light_background" />
@@ -113,11 +110,20 @@
             android:id="@+id/setPatternButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:background="@color/colorAccent"
             android:onClick="setPattern"
-            android:text="Button"
-            android:textColor="@color/cardview_light_background"
-            tools:text="Set Pattern" />
+            android:text="Set Pattern"
+            android:textColor="@color/cardview_light_background" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorButtonNormal"
+            android:onClick="setPattern"
+            android:text="Cancel"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

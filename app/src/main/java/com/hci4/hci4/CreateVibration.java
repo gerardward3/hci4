@@ -16,15 +16,25 @@ public class CreateVibration extends AppCompatActivity {
         setContentView(R.layout.activity_create_vibration);
     }
 
-    public void playPattern1(View view) {
+    public void playPattern(View view) {
         Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(new long[]{0, 100, 100, 100, 300, 500}, -1);
+        switch (view.getId()) {
+            case (R.id.shoppingPatternButton):
+                vibe.vibrate(new long[]{0, 750, 100, 200, 100, 200}, -1);
+            break;
+            case (R.id.cleaningPatternButton):
+                vibe.vibrate(new long[]{0, 200, 100, 100, 50, 100, 50, 100, 200, 200}, -1);
+            break;
+            case (R.id.friendsPatternButton):
+                vibe.vibrate(new long[]{0, 100, 50, 100, 50, 100, 50, 100, 50, 500, 100, 500}, -1);
+            break;
+            case (R.id.petPatternButton):
+                vibe.vibrate(new long[]{0, 250, 250, 250, 200, 100, 50, 100}, -1);
+            break;
+
+        }
     }
 
-    public void playPattern2(View view) {
-        Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(new long[]{0, 750, 100, 200, 100, 200}, -1);
-    }
 
     public void setPattern(View view) {
         Intent intent = new Intent(this, AddReminder.class);

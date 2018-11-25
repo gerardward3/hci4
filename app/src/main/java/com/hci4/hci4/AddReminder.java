@@ -19,6 +19,11 @@ public class AddReminder extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void addEvent(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
