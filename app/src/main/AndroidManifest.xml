@@ -3,6 +3,7 @@
     package="com.hci4.hci4">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddReminder" />
-        <activity android:name=".CreateVibration"></activity>
+        <activity android:name=".CreateVibration" />
+        <activity android:name=".DayReminders" />
     </application>
 
 </manifest>
