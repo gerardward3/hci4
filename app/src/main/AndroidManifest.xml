@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".AddReminder" />
         <activity android:name=".CreateVibration" />
-        <activity android:name=".DayReminders" />
+        <activity android:name=".DayReminders"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

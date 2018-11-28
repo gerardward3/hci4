@@ -1,5 +1,7 @@
 package com.hci4.hci4;
 
+import android.app.ActionBar;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -7,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,6 +37,7 @@ public class DayReminders extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_reminders);
 
+
         Intent intent = this.getIntent();
         currentDate = intent.getStringExtra(MainActivity.DATE);
 
@@ -56,6 +60,7 @@ public class DayReminders extends AppCompatActivity {
         });
     }
 
+
     public void deleteReminder(View view) {
         View parent = (View) view.getParent();
         TextView reminderTextView = (TextView) parent.findViewById(R.id.reminder_title);
@@ -67,20 +72,50 @@ public class DayReminders extends AppCompatActivity {
     }
 
     public void updateUI() {
+
+        Intent intent = this.getIntent();
+        currentDate = intent.getStringExtra(MainActivity.DATE);
+        TextView pageDate = findViewById(R.id.date);
+        pageDate.setText(currentDate);
+
         ArrayList<String> reminderList = new ArrayList();
         SQLiteDatabase db = mHelper.getReadableDatabase();
 
-        Cursor cursor = db.query(ReminderContract.ReminderEntry.TABLE,
+        String newDate = "No events today.";
+
+        if (String.valueOf(pageDate.getText()) == "") {
+            String selectQuery = "SELECT  * FROM " + ReminderContract.ReminderEntry.TABLE;
+            Cursor cursor = db.rawQuery(selectQuery, null);
+            if (cursor.moveToFirst()) {
+                cursor.moveToLast();
+
+                newDate = cursor.getString(cursor.getColumnIndex("date"));
+                newDate = newDate.replace('-', '/');
+            }
+        }
+        else newDate = (String.valueOf(pageDate.getText())).replace('/','-');
+
+        pageDate.setText(newDate);
+
+        Log.d("date", newDate);
+
+        Cursor cursor2 = db.query(ReminderContract.ReminderEntry.TABLE,
                 new String[]{ReminderContract.ReminderEntry._ID, ReminderContract.ReminderEntry.COL_REMINDER_TITLE,
                         ReminderContract.ReminderEntry.COL_REMINDER_DATE, ReminderContract.ReminderEntry.COL_REMINDER_TIME},
                 null, null, null, null, null);
-        while (cursor.moveToNext()) {
-            int idx = cursor.getColumnIndex(ReminderContract.ReminderEntry.COL_REMINDER_TITLE);
-            //String date = cursor.
-            reminderList.add(cursor.getString(idx));
+        while (cursor2.moveToNext()) {
+            int idx = cursor2.getColumnIndex(ReminderContract.ReminderEntry.COL_REMINDER_TITLE);
+            reminderList.add(cursor2.getString(idx));
         }
 
         if (mAdapter == null) {
+            /*Intent intent1 = getIntent();
+            String colour = intent1.getStringExtra(AddReminder.Colour);
+            TextView reminder_item = findViewById(R.id.reminder_title);
+            if (colour != null)
+            {setContentView(R.layout.reminder_item);
+                reminder_item.setTextColor(Color.parseColor(colour));}*/
+
             mAdapter = new ArrayAdapter<String>(this, R.layout.reminder_item,R.id.reminder_title,reminderList);
             mReminderListView.setAdapter(mAdapter);
         } else {
@@ -89,7 +124,7 @@ public class DayReminders extends AppCompatActivity {
             mAdapter.notifyDataSetChanged();
         }
 
-        cursor.close();
+        cursor2.close();
         db.close();
     }
 }

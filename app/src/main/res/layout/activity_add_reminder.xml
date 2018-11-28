@@ -43,6 +43,36 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:text="Vibration Pattern" />
+
+                    <Button
+                        android:id="@+id/vibration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/colorBackgroundFloating"
+                        android:onClick="createVibration"
+                        android:text="Choose Pattern"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tap To Select"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
                         android:id="@+id/textView3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -100,36 +130,6 @@
                         android:inputType="text"
                         android:onClick="showTimePickerDialog"
                         android:text="0:00" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="10dp"
-                        android:text="Vibration Pattern" />
-
-                    <Button
-                        android:id="@+id/vibration"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/holo_orange_light"
-                        android:onClick="createVibration"
-                        android:text="Shopping"
-                        android:textColor="@android:color/black" />
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tap To Change"
-                        android:textAlignment="center" />
-
                 </LinearLayout>
 
             </LinearLayout>

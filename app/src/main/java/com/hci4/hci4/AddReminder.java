@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,8 @@ import com.hci4.hci4.db.ReminderDBHelper;
 
 import java.util.Calendar;
 
+import static java.lang.Integer.valueOf;
+
 public class AddReminder extends AppCompatActivity implements View.OnClickListener {
 
     TextView date, time;
@@ -28,13 +31,23 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     public static final String CURRENT_DATE = "";
     private int mYear, mMonth, mDay, mHour, mMinute;
     private ReminderDBHelper mHelper;
-
+    public static final String Colour = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_reminder);
 
         mHelper = new ReminderDBHelper(this);
+
+        Intent intent = this.getIntent();
+        String title = intent.getStringExtra(CreateVibration.TITLE);
+        final String colour = intent.getStringExtra(CreateVibration.COLOUR);
+        Button vibration = findViewById(R.id.vibration);
+
+        vibration.setText(title);
+        if (colour != null)
+            vibration.setBackgroundColor(Color.parseColor(colour));
+
 
         final EditText reminderTitle = findViewById(R.id.reminderName);
         date = findViewById(R.id.dateOutput);
@@ -56,7 +69,6 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
 
                 ContentValues values = new ContentValues();
 
-                Log.d("db date",reminderDate);
                 values.put(ReminderContract.ReminderEntry.COL_REMINDER_TITLE,reminder);
                 values.put(ReminderContract.ReminderEntry.COL_REMINDER_DATE, reminderDate);
                 values.put(ReminderContract.ReminderEntry.COL_REMINDER_TIME, reminderTime);
@@ -67,10 +79,13 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
                 db.close();
 
                 Intent intent = new Intent(AddReminder.this, DayReminders.class);
-                intent.putExtra(CURRENT_DATE,reminderDate);
+                intent.putExtra(Colour, colour);
                 startActivity(intent);
             }
         });
+
+
+
     }
 
     public void createVibration(View view) {

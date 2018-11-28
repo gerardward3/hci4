@@ -112,7 +112,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@color/colorAccent"
-            android:onClick="setPattern"
             android:text="Set Pattern"
             android:textColor="@color/cardview_light_background" />
 
@@ -121,7 +120,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorButtonNormal"
-            android:onClick="setPattern"
             android:text="Cancel"
             android:textColor="@android:color/black" />
 
