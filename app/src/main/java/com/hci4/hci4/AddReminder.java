@@ -39,12 +39,17 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
 
         mHelper = new ReminderDBHelper(this);
 
+        Button vibration = findViewById(R.id.vibration);
+
+        //vibration.setText("CHOOSE PATTERN");
         Intent intent = this.getIntent();
         String title = intent.getStringExtra(CreateVibration.TITLE);
         final String colour = intent.getStringExtra(CreateVibration.COLOUR);
-        Button vibration = findViewById(R.id.vibration);
 
-        vibration.setText(title);
+        if (title == null)
+            vibration.setText("CHOOSE PATTERN");
+        else
+            vibration.setText(title);
         if (colour != null)
             vibration.setBackgroundColor(Color.parseColor(colour));
 
